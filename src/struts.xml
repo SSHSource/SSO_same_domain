@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<!-- 
+该文件包括
+1、全局属性
+2、用户请求和响应Action之间的对应关系
+3、Action可能用到的参数和返回结果
+4、各种拦截器的配置
+ -->
+ 
+<struts>
+
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="helloworld" class="com.superxu.action.HelloworldAction">
+            <result>/result.jsp</result>
+        </action>
+    </package>
+<!--  <constant name="" value=""></constant>--> 
+	<package name="sso" namespace="/sso" extends="struts-default">
+	    <action name="dologin" class="com.superxu.action.SSOAction" method="dologin">
+	        <result name="success" type="redirect">${gotourl}</result>
+	    </action>
+	</package>
+	<package name="demo1" namespace="/demo1" extends="struts-default">
+	    <action name="main" class="com.superxu.demo1.Demo1Action" method="main">
+	        <result name="success">/success1.jsp</result>
+	        <result name="login">/login.jsp</result>
+	    </action>
+	</package>
+	<package name="demo2" namespace="/demo2" extends="struts-default">
+	    <action name="main" class="com.superxu.demo2.Demo2Action" method="main">
+	        <result name="success">/success2.jsp</result>
+	        <result name="login">/login.jsp</result>
+	    </action>
+	</package>
+</struts>
